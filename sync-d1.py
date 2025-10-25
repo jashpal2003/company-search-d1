@@ -89,37 +89,21 @@ def insert_companies_batch(companies):
     # Build batch insert query
     values = []
     for company in companies:
-        cin = company.get('CORPORATE_IDENTIFICATION_NUMBER')
+        cin = company.get('corporate_identification_number') # <-- CORRECT
         if not cin:
             continue
         
         # Escape single quotes in strings
-        name = company.get('COMPANY_NAME', '').replace("'", "''")
-        status = company.get('COMPANY_STATUS', '').replace("'", "''")
-        reg_date = company.get('DATE_OF_REGISTRATION', '').replace("'", "''")
-        company_class = company.get('COMPANY_CLASS', '').replace("'", "''")
-        roc = company.get('REGISTRAR_OF_COMPANIES', '').replace("'", "''")
-        email = company.get('EMAIL', '').replace("'", "''")
-        state = company.get('STATE', '').replace("'", "''")
+        name = company.get('company_name', '').replace("'", "''") # <-- CORRECT
+        status = company.get('company_status', '').replace("'", "''") # <-- CORRECT
+        reg_date = company.get('date_of_registration', '').replace("'", "''") # <-- CORRECT
+        company_class = company.get('company_class', '').replace("'", "''") # <-- CORRECT
+        roc = company.get('registrar_of_companies', '').replace("'", "''") # <-- CORRECT
+        email = company.get('email_id', '').replace("'", "''") # <-- Note: email is 'email_id' in some datasets, check your XML
+        state = company.get('registered_state', '').replace("'", "''") # <-- Note: check your XML for this key name
         
         values.append(f"('{name}', '{cin}', '{status}', '{reg_date}', '{company_class}', '{roc}', '{email}', '{state}')")
-    
-    if not values:
-        return 0
-    
-    # Insert with UPSERT logic (SQLite doesn't support full UPSERT, use REPLACE)
-    sql = f"""
-    INSERT OR REPLACE INTO companies 
-    (company_name, cin, status, registration_date, company_class, roc, email, state)
-    VALUES {', '.join(values)}
-    """
-    
-    result = execute_d1_query(sql)
-    
-    if result:
-        return len(values)
-    return 0
-
+...
 def main():
     print("=" * 60)
     print("Cloudflare D1 Company Data Sync")
