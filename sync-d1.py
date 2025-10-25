@@ -20,6 +20,14 @@ RESOURCE_ID = "ec58dab7-d891-4abb-936e-d5d274a6ce9b"
 # D1 API endpoints
 D1_API_BASE = f"https://api.cloudflare.com/client/v4/accounts/{CLOUDFLARE_ACCOUNT_ID}/d1/database/{D1_DATABASE_ID}"
 
+
+print("D1_API_BASE ", D1_API_BASE )
+print("CLOUDFLARE_API_TOKEN ", CLOUDFLARE_API_TOKEN )
+print("CLOUDFLARE_ACCOUNT_ID ", CLOUDFLARE_ACCOUNT_ID )
+print("D1_DATABASE_ID ", D1_DATABASE_ID )
+print("OGD_API_KEY ", OGD_API_KEY )
+
+
 def execute_d1_query(sql, params=None):
     """Execute SQL query on D1 database via Cloudflare API"""
     headers = {
