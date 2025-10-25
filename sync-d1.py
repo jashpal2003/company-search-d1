@@ -12,10 +12,10 @@ from datetime import datetime
 CLOUDFLARE_ACCOUNT_ID = os.getenv('CLOUDFLARE_ACCOUNT_ID')
 CLOUDFLARE_API_TOKEN = os.getenv('CLOUDFLARE_API_TOKEN')
 D1_DATABASE_ID = os.getenv('D1_DATABASE_ID')
-OGD_API_KEY = os.getenv('OGD_API_KEY')
+OGD_API_KEY = "579b464db66ec23bdd000001374c3ea40d5040795584f9345656aee7"
 
 OGD_API_BASE = "https://api.data.gov.in/resource/"
-RESOURCE_ID = "b9622501-86d8-43e0-a19f-14e8d84e8c6e"
+RESOURCE_ID = "ec58dab7-d891-4abb-936e-d5d274a6ce9b"
 
 # D1 API endpoints
 D1_API_BASE = f"https://api.cloudflare.com/client/v4/accounts/{CLOUDFLARE_ACCOUNT_ID}/d1/database/{D1_DATABASE_ID}"
