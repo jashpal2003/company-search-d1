@@ -1,0 +1,13 @@
+name = "company-search-d1"
+main = "src/worker.ts"
+compatibility_date = "2024-01-01"
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "company-search-db"
+database_id = "cfe30307-f738-4256-bc18-c1c28907b85d" # <-- YOU DID IT!
+
+# Environment variables (optional)
+[vars]
+ENVIRONMENT = "production"
