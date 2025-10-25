@@ -53,7 +53,7 @@ def sync_companies_batch(offset, limit=1000):
         'format': 'json',
         'limit': limit,
         'offset': offset,
-        'filters[COMPANY_STATUS]': 'Active'  # Only active companies to save space
+       
     }
     
     try:
