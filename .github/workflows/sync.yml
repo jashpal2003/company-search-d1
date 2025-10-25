@@ -1,7 +1,11 @@
-name: Daily Company Syncon:
+name: Daily Company Sync
+
+on:
   schedule:
     - cron: '0 2 * * *'  # 2 AM UTC daily
-  workflow_dispatch:  # Manual triggerjobs:
+  workflow_dispatch:  # Manual trigger
+
+jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
